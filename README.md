@@ -14,7 +14,3 @@ Model development (Python 3.6.7):
     - 2.2.4 Temporal Variation: Movement activity on weekdays
 - 3 Accessories
   - Accessory scripts: Calculating tweet counts per user, user geo-tag statistics
-
-MIT License
-
-Copyright (c) 2019 DigitalGeographyLab

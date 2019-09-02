@@ -16,4 +16,5 @@ Model development (Python 3.6.7):
   - Accessory scripts: Calculating tweet counts per user, user geo-tag statistics
 
 MIT License
+
 Copyright (c) 2019 DigitalGeographyLab

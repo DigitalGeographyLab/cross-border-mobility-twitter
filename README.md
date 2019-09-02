@@ -1,5 +1,5 @@
 # Modeling Cross-Border Mobility using SoMe
-"Modeling Cross-Border Mobility via Geo-Tagged Twitter in the Greater Region of Luxembourg"
+Samuli Massinen's MSc Thesis "Modeling Cross-Border Mobility via Geo-Tagged Twitter in the Greater Region of Luxembourg"
 
 Model development (Python 3.6.7):
 - 1 Data Acquisition & Preprocessing:
@@ -14,3 +14,6 @@ Model development (Python 3.6.7):
     - 2.2.4 Temporal Variation: Movement activity on weekdays
 - 3 Accessories
   - Accessory scripts: Calculating tweet counts per user, user geo-tag statistics
+
+MIT License
+Copyright (c) 2019 DigitalGeographyLab

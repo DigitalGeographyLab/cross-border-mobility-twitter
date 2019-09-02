@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 """
-Created on Fri Jan 25 11:59:02 2019
+Detecting and assigning home region in the Greater Region of Luxembourg
 
-@author: Localadmin_smassine
+@author: smassine
 """
 
 # Import necessary libraries
@@ -90,6 +89,3 @@ for key, values in grouped:
 processed_data = gpd.GeoDataFrame(pd.concat(df_list, ignore_index=True))
 # Save
 processed_data.to_pickle(r"C:\LocalData\smassine\Gradu\Data\Twitter\Luxemburg_border_region\API\Geotagged\TwitterAPI_lux_home_inside_greater_region.pkl") 
-    
-    
-    

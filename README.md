@@ -1,4 +1,4 @@
-# Modeling Cross-Border Mobility using SoMe
+# Modeling Cross-Border Mobility Using SoMe
 Samuli Massinen's MSc Thesis "Modeling Cross-Border Mobility via Geo-Tagged Twitter in the Greater Region of Luxembourg"
 
 Model development (Python 3.6.7):

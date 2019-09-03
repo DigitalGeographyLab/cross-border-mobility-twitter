@@ -3,7 +3,7 @@ Samuli Massinen's MSc Thesis "Modeling Cross-Border Mobility via Geo-Tagged Twit
 
 Model development (Python 3.6.7):
 - 1 Data Acquisition & Preprocessing:
-  - 1.1 Acquisition: Collecting data from Twitter API using Python Tweepy
+  - 1.1 Acquisition: Collecting data from Twitter API using Tweepy
   - 1.2 Preprocessing: Detecting and exluding likely bots, extracting geo-tagged rows, parsing data into Pandas, renaming columns & producing hashed pseudo ids
 - 2 Analysis
   - 2.1 Home Detection: User home country detection, identifying and assigning home region

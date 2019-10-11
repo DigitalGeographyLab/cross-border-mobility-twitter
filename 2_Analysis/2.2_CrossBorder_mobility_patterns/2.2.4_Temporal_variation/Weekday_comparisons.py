@@ -28,7 +28,7 @@ def calculateWeekdays(gdf, move_type, file_name):
     move_type: <str>
     
         Cross-border mover type based on binary classification.
-        Required: either "CB-commuter" or "Infrequent border crosser".
+        Required: either "Daily cross-border mover" or "Infrequent border crosser".
         
     file_name: <str>
     

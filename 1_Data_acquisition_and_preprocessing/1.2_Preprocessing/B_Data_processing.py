@@ -1,6 +1,6 @@
 """
 This script preprocesses data collected from Twitter API for further use:
-    1. Extraction of geo-tagged tweets
+    1. Extraction of geotagged tweets
     2. Removal of likely bots
     3. Creation of data schema, extraction of wanted user profile information
     4. Producing hashed pseudo-ids to support GDPR

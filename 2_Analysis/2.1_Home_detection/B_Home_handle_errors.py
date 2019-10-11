@@ -1,10 +1,10 @@
 """
-A script for processing errors do due home country detection algorithm's accuracy.
-Some rows have been assigned with a wrong country. This rows will be updated with
+A script for processing errors due to the accuracy of home country detection algorithms.
+Some rows have been assigned with a wrong country. These rows will be updated with the
 ground truth value (user given home location).
 
-Also, there are some problematic home locations for some Twitter users. These
-individuals will be gathered into a list for further analysis.
+In addition, there are a few problematic home locations for some Twitter users. These
+individuals are collected into a list for further analysis.
 
 @author: smassine
 """

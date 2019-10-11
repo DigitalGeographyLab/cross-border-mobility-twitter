@@ -42,7 +42,7 @@ def calculateWeekdays(gdf, move_type, file_name):
     """
     
     # Select by mover type
-    gdf_type = gdf.loc[gdf['commuterTy'] == move_type]
+    gdf_type = gdf.loc[gdf['moverType'] == move_type]
     gdf_type = gdf_type.reset_index()
     
     # Create weekday variables
@@ -101,9 +101,9 @@ def calculateWeekdays(gdf, move_type, file_name):
     
     return dictionary
 
-bel_cbc_result = calculateWeekdays(bel, 'CB-commuter', 'bel_cbc_temporal.csv')
+bel_cbc_result = calculateWeekdays(bel, 'Daily cross-border mover', 'bel_cbc_temporal.csv')
 bel_ibc_result = calculateWeekdays(bel, 'Infrequent border crosser', 'bel_ibc_temporal.csv')
-fra_cbc_result = calculateWeekdays(fra, 'CB-commuter', 'fra_cbc_temporal.csv')
+fra_cbc_result = calculateWeekdays(fra, 'Daily cross-border mover', 'fra_cbc_temporal.csv')
 fra_ibc_result = calculateWeekdays(fra, 'Infrequent border crosser', 'fra_ibc_temporal.csv')
-ger_cbc_result = calculateWeekdays(ger, 'CB-commuter', 'ger_cbc_temporal.csv')
+ger_cbc_result = calculateWeekdays(ger, 'Daily cross-border mover', 'ger_cbc_temporal.csv')
 ger_ibc_result = calculateWeekdays(ger, 'Infrequent border crosser', 'ger_ibc_temporal.csv')

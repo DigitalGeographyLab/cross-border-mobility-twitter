@@ -1,5 +1,5 @@
 """
-A script for detecting bots from Twitter data.
+A script for detecting bots in Twitter data.
 
 @author: smassine
 """

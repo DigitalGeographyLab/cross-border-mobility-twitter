@@ -1,5 +1,5 @@
 """
-This script creates movement datasets (LineString) from geo-tagged Twitter datasets (Point).
+This script creates movement datasets (LineString) from geotagged Twitter datasets (Point).
 Trips distance calculations are based on Haversine formula.
 
 @author: smassine
@@ -52,8 +52,8 @@ data['duration'] = None
 data['CB_move'] = None
 data['distanceKm'] = None
 
-data = data.rename(columns={'coordinates': 'geometry', 'home_unique_weeks': 'homeLoc', 'lux_region_home': 'luxRegion', 'post_country': 'destCountry', 'datetime': 'destTime'})
-selected_columns = ['geometry', 'userid', 'homeLoc', 'luxRegion', 'origCountry', 'destCountry', 'origTime' , 'destTime', 'avgTime', 'duration', 'CB_move', 'distanceKm']
+data = data.rename(columns={'coordinates': 'geometry', 'home_unique_weeks': 'homeLoc', 'dominance_area': 'domArea', 'post_country': 'destCountry', 'datetime': 'destTime'})
+selected_columns = ['geometry', 'userid', 'homeLoc', 'domArea', 'origCountry', 'destCountry', 'origTime' , 'destTime', 'avgTime', 'duration', 'CB_move', 'distanceKm']
 selected_data = data[selected_columns]
 
 # Select data subsamples
@@ -91,7 +91,7 @@ def createLineDF(gdf, output_fp_name):
     
     gdf.set_geometry(col='geometry')
     
-    line_data = gpd.GeoDataFrame(columns=['geometry', 'userid', 'homeLoc', 'luxRegion', 'origCountry', 'destCountry', 'origTime' , 'destTime', 'avgTime', 'duration', 'CB_move', 'distanceKm'], geometry='geometry')
+    line_data = gpd.GeoDataFrame(columns=['geometry', 'userid', 'homeLoc', 'domArea', 'origCountry', 'destCountry', 'origTime' , 'destTime', 'avgTime', 'duration', 'CB_move', 'distanceKm'], geometry='geometry')
     line_data.crs = fiona.crs.from_epsg(4326)
     
     grouped = gdf.groupby('userid')

@@ -1,6 +1,7 @@
 """
 This script calculates median and mean centroids from point datasets.
-Used for identifying Twitter user's activity nodes.
+Used for identifying Twitter user's activity nodes (i.e. daily life
+spaces of people).
 
 @author: smassine
 """
@@ -42,11 +43,11 @@ for index, row in bbox.iterrows():
 # The Greater Region without Luxembourg
 greater_region = greater_region - lux
         
-# Filter data based on home inside the Greater Region
-belgium_gr = data.loc[data['luxRegion'] == 'Belgium']
-france_gr = data.loc[data['luxRegion'] == 'France']
-germany_gr = data.loc[data['luxRegion'] == 'Germany']
-luxembourg_gr = data.loc[data['luxRegion'] == 'Luxembourg']
+# Filter data based on dominance area inside the Greater Region
+belgium_gr = data.loc[data['domArea'] == 'Belgium']
+france_gr = data.loc[data['domArea'] == 'France']
+germany_gr = data.loc[data['domArea'] == 'Germany']
+luxembourg_gr = data.loc[data['domArea'] == 'Luxembourg']
 
 # Create MultiPoint sets for centroid calculation
 def getPointSetCentorid(gdf, group_users, calc_method):

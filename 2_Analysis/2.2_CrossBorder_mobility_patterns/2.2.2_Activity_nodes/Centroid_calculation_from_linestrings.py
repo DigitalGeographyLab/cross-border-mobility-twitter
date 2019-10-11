@@ -14,7 +14,7 @@ import sys
 import numpy as np
 
 # Open dataset
-with open(r'C:\LocalData\smassine\Gradu\Data\Twitter\Luxemburg_border_region\API\Geotagged\LineString\CommuterColumn\Greater_Region_commuters_crs_update.pkl', 'rb') as f:
+with open(r'C:\LocalData\smassine\Gradu\Data\Twitter\Luxemburg_border_region\API\Geotagged\LineString\MoverColumn\Greater_Region_daily_crs_update.pkl', 'rb') as f:
     data = pickle.load(f)
 
 # Read country polygons and create bboxes for different country areas inside the Greater Region of Luxembourg
@@ -181,7 +181,7 @@ def getPointSetCentorid(gdf, group_users, calc_method):
                     print("calc_method parameter must be either 'mean' or 'median'!")
                     sys.exit()
                 
-                list_element = {'geometry': user_centroid, 'userid': key, 'commuter': individual.commuterType.unique()[0]}
+                list_element = {'geometry': user_centroid, 'userid': key, 'mover': individual.moverType.unique()[0]}
                 user_centroids_list.append(list_element)
                 
         df = pd.DataFrame(user_centroids_list)
@@ -200,10 +200,10 @@ france_centroid_all = getPointSetCentorid(france_gr, False, 'median')
 germany_centroid_all = getPointSetCentorid(germany_gr, False, 'median')
 luxembourg_centroid_all = getPointSetCentorid(luxembourg_gr, False, 'median')
 
-all_centroid = [{'geometry': belgium_centroid_all, 'country': 'Belgium', 'all_code': 1, 'userid': None, 'commuter': None},
-                {'geometry': france_centroid_all, 'country': 'France', 'all_code': 1, 'userid': None, 'commuter': None},
-                {'geometry': luxembourg_centroid_all, 'country': 'Luxembourg', 'all_code': 1, 'userid': None, 'commuter': None},
-                {'geometry': germany_centroid_all, 'country': 'Germany', 'all_code': 1, 'userid': None, 'commuter': None}]
+all_centroid = [{'geometry': belgium_centroid_all, 'country': 'Belgium', 'all_code': 1, 'userid': None, 'mover': None},
+                {'geometry': france_centroid_all, 'country': 'France', 'all_code': 1, 'userid': None, 'mover': None},
+                {'geometry': luxembourg_centroid_all, 'country': 'Luxembourg', 'all_code': 1, 'userid': None, 'mover': None},
+                {'geometry': germany_centroid_all, 'country': 'Germany', 'all_code': 1, 'userid': None, 'mover': None}]
 
 all_centroids_list = pd.DataFrame(all_centroid)
 all_centroids_list['geometry'] = all_centroids_list['geometry'].apply(Point)

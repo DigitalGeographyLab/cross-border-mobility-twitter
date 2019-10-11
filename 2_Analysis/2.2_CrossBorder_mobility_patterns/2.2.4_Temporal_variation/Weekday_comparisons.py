@@ -10,9 +10,9 @@ import geopandas as gpd
 import os
 
 # Open LineString datasets
-bel = gpd.read_file(r"C:\LocalData\smassine\Gradu\Data\Twitter\Luxemburg_border_region\API\Geotagged\LineString\CommuterColumn\SHP\InUse\bel-lux.shp")
-fra = gpd.read_file(r"C:\LocalData\smassine\Gradu\Data\Twitter\Luxemburg_border_region\API\Geotagged\LineString\CommuterColumn\SHP\InUse\fra-lux.shp")
-ger = gpd.read_file(r"C:\LocalData\smassine\Gradu\Data\Twitter\Luxemburg_border_region\API\Geotagged\LineString\CommuterColumn\SHP\InUse\ger-lux.shp")
+bel = gpd.read_file(r"C:\LocalData\smassine\Gradu\Data\Twitter\Luxemburg_border_region\API\Geotagged\LineString\MoverColumn\SHP\InUse\bel-lux.shp")
+fra = gpd.read_file(r"C:\LocalData\smassine\Gradu\Data\Twitter\Luxemburg_border_region\API\Geotagged\LineString\MoverColumn\SHP\InUse\fra-lux.shp")
+ger = gpd.read_file(r"C:\LocalData\smassine\Gradu\Data\Twitter\Luxemburg_border_region\API\Geotagged\LineString\MoverColumn\SHP\InUse\ger-lux.shp")
 
 def calculateWeekdays(gdf, move_type, file_name):
     

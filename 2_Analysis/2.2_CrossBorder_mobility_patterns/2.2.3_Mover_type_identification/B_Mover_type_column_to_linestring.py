@@ -18,7 +18,7 @@ id_list = text_file.read().split('\n')
 daily_movers = data.loc[data['userid'].isin(id_list)]
 infrequent = data.loc[~data['userid'].isin(id_list)]
 
-daily_movers['moverType'] = 'CB-commuter'
+daily_movers['moverType'] = 'Daily cross-border mover'
 infrequent['moverType'] = 'Infrequent border crosser'
 
 merged_df = pd.concat([daily_movers, infrequent], ignore_index = True)

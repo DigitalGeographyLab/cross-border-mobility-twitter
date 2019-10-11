@@ -1,5 +1,5 @@
 """
-Detecting and assigning home region in the Greater Region of Luxembourg
+Detecting and assigning dominance areas in the Greater Region of Luxembourg
 
 @author: smassine
 """
@@ -24,8 +24,8 @@ for index, row in greater_lux_region.iterrows():
     else:
         mergedpoly = mergedpoly.union(row['geometry'])
 
-# Create column for detecting home region inside Greater Region of Luxembourg
-data['lux_region_home'] = None
+# Create column for detecting dominance areas inside Greater Region of Luxembourg
+data['dominance_area'] = None
 
 grouped = data.groupby('userid')
 
@@ -44,7 +44,7 @@ for key, values in grouped:
         
         print("Processing...", y, "/", len(grouped))
         
-        # Use unique weeks algorithm to identify home country inside the Greater region
+        # Use unique weeks algorithm to identify a dominance area inside the Greater region
         unique_weeks = individual.drop_duplicates(subset='unique_weeks')
         
         # Iterate over user's unique weeks and calculate post counts per country inside the Greater Region
@@ -61,11 +61,11 @@ for key, values in grouped:
         # Reset country_list for next Twitter user
         country_list = []
         
-        # If the length of home country list is 1, the algorithm has detected unique home country
+        # If the length of home country list is 1, the algorithm has detected a unique dominance area
         if len(home_country_list) == 1:
             
             for index, row in individual.iterrows():
-                individual.loc[index, 'lux_region_home'] = home_country_list[0]
+                individual.loc[index, 'dominance_area'] = home_country_list[0]
             
             df_list.append(individual)
                 
@@ -76,7 +76,7 @@ for key, values in grouped:
         else:
             
             for index, row in individual.iterrows():
-                individual.loc[index, 'lux_region_home'] = 'Potential cross-border mover'
+                individual.loc[index, 'dominance_area'] = 'Potential cross-border mover'
             
             df_list.append(individual)
             

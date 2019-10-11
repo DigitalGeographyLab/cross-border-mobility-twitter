@@ -4,14 +4,14 @@ This script identifies and classifies Twitter users to different cross-border mo
 Two criteria:
 
     1)	“Inside GRL” trips’ share of all trips inside the Greater Region, and
-    2)	Country sections’ share of geo-tagged posts.
+    2)	Country sections’ share of geotagged posts.
 
 The first criterion is passed if “Inside GRL” trips’ share of all trips is >= 20 %.
-The second criterion, again, is passed if a country section’s share of geo-tagged posts
+The second criterion, again, is passed if a country section’s share of geotagged posts
 iss >= 20 % and the 20 % threshold iss exceeded in at least two countries. Also, one of
-these countries has to be a user’s home country.
+these countries has to be a user’s dominance area.
 
-If both criteria are satisfied, a user is being labeled as a CROSS-BORDER COMMUTER.
+If both criteria are satisfied, a user is being labeled as a DAILY CROSS-BORDER MOVER.
 Else, a user is being given an INFREQUENT BORDER CROSSER label.
 
 @author: smassine
@@ -90,7 +90,7 @@ point_data.crs = fiona.crs.from_epsg(4326)
 
 # Let's select all Tweets from users living inside the Greater Region of Luxembourg
 wanted_tweets = ['Luxembourg', 'Germany', 'Belgium', 'France']
-point_data_grl = point_data.loc[point_data['lux_region_home'].isin(wanted_tweets)]
+point_data_grl = point_data.loc[point_data['dominance_area'].isin(wanted_tweets)]
 
 # Read country polygons. Create a bbox for Greater Region of Luxembourg
 greater_lux_region = gpd.read_file(r"C:\LocalData\smassine\Gradu\Data\GreaterLux\SHP\Global_regions_GreatLux.shp")
@@ -118,8 +118,8 @@ for key, values in grouped_points:
     
     individual = values
     
-    # Store individual home into a variable
-    user_home = individual.lux_region_home.unique()[0]
+    # Store individual dominance area into a variable
+    user_home = individual.dominance_area.unique()[0]
     
     # Drop Tweets that are outside of the Greater Region
     for index, row in individual.iterrows():
@@ -223,17 +223,17 @@ point_df = pd.DataFrame(point_list)
 
 # Merge dfs
 merged_df = pd.merge(portion_df, point_df, on=['userid','userid'])
-merged_df.to_excel(r"C:\LocalData\smassine\Gradu\Data\Twitter\Luxemburg_border_region\API\Geotagged\Commuters\NullTripsExclude\commuter_identification_20_threshold.xlsx")
+merged_df.to_excel(r"C:\LocalData\smassine\Gradu\Data\Twitter\Luxemburg_border_region\API\Geotagged\Daily\NullTripsExclude\daily_identification_20_threshold.xlsx")
 
 # Save userid lists
 wanted_users = merged_df.loc[merged_df['factor_line'] == 1]
 wanted_users = wanted_users.loc[wanted_users['factor_point'] > 1]
 
 userid_list = wanted_users['userid']
-userid_list.to_csv(r'C:\LocalData\smassine\Gradu\Data\Twitter\Luxemburg_border_region\API\Geotagged\Commuters\NullTripsExclude\commuter_userids_20_threshold.txt', sep=' ', index=False)
+userid_list.to_csv(r'C:\LocalData\smassine\Gradu\Data\Twitter\Luxemburg_border_region\API\Geotagged\Daily\NullTripsExclude\daily_userids_20_threshold.txt', sep=' ', index=False)
 
 # Save discarded users
-with open(r'C:\LocalData\smassine\Gradu\Data\Twitter\Luxemburg_border_region\API\Geotagged\Commuters\NullTripsExclude\discarded_userids_20_threshold.txt', 'w') as f:
+with open(r'C:\LocalData\smassine\Gradu\Data\Twitter\Luxemburg_border_region\API\Geotagged\Daily\NullTripsExclude\discarded_userids_20_threshold.txt', 'w') as f:
     for item in discarded_users:
         f.write("%s\n" % item)
         
